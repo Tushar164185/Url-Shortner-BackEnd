@@ -11,11 +11,13 @@ const port = 8080;
 const cors = require('cors');
 const cookieparser=require('cookie-parser');
 app.use(cookieparser());
-console.log(process.env.FRONTEND_URL),
+//console.log(process.env.FRONTEND_URL),
 app.use(cors({
     origin: process.env.FRONTEND_URL,
     credentials: true
 }));
+app.use(express.json());
+app.options('*', cors());
 app.listen(port,()=>{
     connectDB();
     console.log("Hello World");
