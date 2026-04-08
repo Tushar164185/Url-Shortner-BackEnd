@@ -1,7 +1,5 @@
 const express=require('express');
 const app=express();
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
 const connectDB=require('./mongoose.js');
 require('dotenv').config({path:"./.env"});
 const shorturlroutes=require("./routes/shorturl.routes.js");
@@ -17,6 +15,7 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 app.listen(port,()=>{
     connectDB();
     console.log("Hello World");
