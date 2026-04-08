@@ -17,7 +17,6 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json());
-app.options('*', cors());
 app.listen(port,()=>{
     connectDB();
     console.log("Hello World");
